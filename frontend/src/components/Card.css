@@ -1,0 +1,53 @@
+
+
+/*CARD STYLES*/
+.card{
+    text-align: center;
+    cursor: pointer;
+    width: 300px;
+    height: 440px;
+    
+}
+.center{
+    position: relative;
+    margin: auto;
+}
+.front,.back{
+    border: 1px solid black;
+    width: 300px;
+    height: 440px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+  }
+.front {
+    background: whitesmoke;
+    transform: perspective(600px) rotateY(0deg);
+}
+.back{
+    background: skyblue;
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+  }
+  .card:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+  }
+  
+
+  /*CARD NAVIGATION*/
+
+  .cards-navigation{
+    
+    width: 300px;
+
+    
+  }
+  button{
+      width: 100px;
+      height: 40px;
+      font-size: 1.5rem;
+  }
