@@ -27,15 +27,15 @@
 }
 .back{
     background: skyblue;
-    transform: perspective(600px) rotateY(180deg);
+     transform: perspective(600px) rotateY(-180deg); 
 }
 
 .card:hover > .front{
-    transform: perspective(600px) rotateY(-180deg);
+    transform: perspective(600px) rotateY(180deg);
   }
-  .card:hover > .back{
+.card:hover > .back{ 
     transform: perspective(600px) rotateY(0deg);
-  }
+  }  
   
 
   /*CARD NAVIGATION*/
