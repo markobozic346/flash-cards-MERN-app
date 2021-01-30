@@ -1,53 +1,82 @@
-
-
 /*CARD STYLES*/
-.card{
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
-    height: 440px;
-    
+.card {
+  text-align: center;
+  cursor: pointer;
+  width: 300px;
+  height: 440px;
 }
-.center{
-    position: relative;
-    margin: auto;
+.center {
+  position: relative;
+  margin: auto;
 }
-.front,.back{
-    border: 1px solid black;
-    width: 300px;
-    height: 440px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    position: absolute;
-    transition: transform .6s linear;
-  }
-.front {
-    background: whitesmoke;
-    transform: perspective(600px) rotateY(0deg);
+.front,
+.back {
+  border: 1px solid white;
+  background-color: whitesmoke;
+  width: 300px;
+  height: 440px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+}
+/*set default values*/
+.front{
+  transform: perspective(600px) rotateY(0deg);
 }
 .back{
-    background: skyblue;
-     transform: perspective(600px) rotateY(-180deg); 
+  transform: perspective(600px) rotateY(-180deg);
 }
-
-.card:hover > .front{
+/*animations*/
+.front[rotate="1"] {
+  animation: rotateFront 1.5s 1 forwards;
+}
+.back[rotate="1"] {
+  animation: rotateBack 1.5s 1 forwards;
+}
+.front[rotate="2"] {
+  animation: frontReverse 1.5s 1 forwards;
+}
+.back[rotate="2"] {
+  animation: backReverse 1.5s 1 forwards;
+}
+/*front face goes back*/
+@keyframes rotateFront {
+  100% {
     transform: perspective(600px) rotateY(180deg);
   }
-.card:hover > .back{ 
+}
+/*front face comes back to front*/
+@keyframes frontReverse {
+  0% {
+    transform: perspective(600px) rotateY(180deg);
+  }
+  100% {
     transform: perspective(600px) rotateY(0deg);
-  }  
-  
-
-  /*CARD NAVIGATION*/
-
-  .cards-navigation{
-    
-    width: 300px;
-
-    
   }
-  button{
-      width: 100px;
-      height: 40px;
-      font-size: 1.5rem;
+}
+/*back face comes to front*/
+@keyframes rotateBack {
+  100% {
+    transform: perspective(600px) rotateY(0deg);
   }
+}
+/*back face returning at back*/
+@keyframes backReverse {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(600px) rotateY(-180deg);
+  }
+}
+
+/*CARD NAVIGATION*/
+
+.cards-navigation {
+  width: 300px;
+}
+button {
+  width: 100px;
+  height: 40px;
+  font-size: 1.5rem;
+}
